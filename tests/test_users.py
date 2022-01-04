@@ -12,6 +12,9 @@ class TestUserRegistration:
     """
     R1: The consumer hits /user/register with GET method should get Method Not Allowed.
     """
+    def test_get_request_returns_405(self):
+        response = client.get("/user/register")
+        assert response.status_code == 405
 
     """
     R2: The API consumer hits /users/register with a POST method without body
